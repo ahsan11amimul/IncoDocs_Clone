@@ -1,11 +1,6 @@
 <div class="mainHeader">
-    <ul class="nav justify-content-end mt-3 pt-4">
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-secondary">
-                   <i class="fas fa-user-plus"></i>
-                   Invite Team
-                </a>
-            </li>
+    <ul class="nav justify-content-end  pt-4">
+           
             <li class="nav-item">
                 <a class="nav-link" href="#" title="Help Center">
                     <i class="fas fa-star"></i>
@@ -14,16 +9,16 @@
             <li class="nav-item">
              <div class="dropdow">
                 <a class="nav-link dropdown-toggle" id="dropdownId" data-toggle="dropdown" href="#">
-                  <i class="fab fa-adn text-danger fa-2x">
-                
-                  </i>
+                  <span class="letter">
+                      {{strtoupper(substr(Auth::user()->email,0,1))}}
+                  </span>
                   
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
 
                 <a class="dropdown-item" href="#"> 
                    
-                    <i class="fab fa-adn text-danger fa-1x ml-2 mr-2"></i>
+                    <span class="letter">{{strtoupper(substr(Auth::user()->email,0,1))}}</span>
                     {{Auth::user()->email}}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item"  href="{{url('/profile')}}">

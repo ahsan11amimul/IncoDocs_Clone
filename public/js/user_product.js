@@ -90,7 +90,7 @@ $(document).ready(function () {
         $('#form_result').html('');
         $.ajax({
             url: "/products/" + id + "/edit",
-            dataType: "json",
+            dataType: "json",  
             success: function (html) {
 
                 $('#product_id').val(html.data.id);

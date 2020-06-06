@@ -1,8 +1,8 @@
 <div class="sidenav">
       <!-- Example split danger button -->
 <div class="dropdown">
-   <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {{App\Company::firstWhere('user_id',auth()->user()->id)->name}}
+<a class="btn btn-danger dropdown-toggle" href="{{url('/company')}}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   {{App\Company::where('user_id',auth()->user()->id)->first()->name??'Create Company'}}
   </a>
   <div class="dropdown-menu">
   <a class="dropdown-item" href="{{url('/profile')}}">
@@ -20,7 +20,7 @@
         <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{url('/company')}}">
             <i class="fas fa-cog mr-3 text-muted"></i>
-            Comapany Settings
+            Company Settings
         </a>
         <a class="dropdown-item" href="#">
         <i class="fas fa-file-invoice-dollar mr-3 text-muted"></i>

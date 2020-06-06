@@ -1,15 +1,15 @@
 @extends('pages.layouts.master')
-@section('title','Inco Docs')
+@section('title','WhichExpress')
 @section('content')
   <div class="container">
     <div class="row justify-content-center m-auto">
         <div class="col-md-8">
             <div class="card mt-5">
-                 <a href="{{ url('/')}}" class="text-dark text-left">
-                    <i class="fas fa-arrow-alt-circle-left"></i>
-                    Back Home
+                
+                <a href="/">
+                 <img src="{{URL::asset('/images/favicon.png')}}" alt="" width="80" height="62">
                 </a>
-                <div class="card-header text-center">Get Started With Inco Docs</div>
+                <div class="card-header text-center" style="font-size: 25px;color:#09132e;">Get started for free</div>
 
                 <div class="card-body">
                 <form method="POST" action="{{route('register')}}">
@@ -67,7 +67,7 @@
                     </form>
                 </div>
                 <div class="card-footer">
-                <p class="text-center">Already have an account??&nbsp;<a href="{{url('/login')}}">Sign in</a></p>
+                <p class="text-center pl-3"><a href="{{url('/login')}}">Already have an account ? Login</a></p>
                 </div>
             </div>
         </div>

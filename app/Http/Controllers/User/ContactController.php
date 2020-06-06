@@ -84,8 +84,8 @@ class ContactController extends Controller
         $form_data = array(
            'company_name'  =>   $request->company_name,
             'user_id'=>Auth::user()->id,
-            'logo'          =>  $new_name,
-            'first_name'    =>  $request->first_name,
+            'logo'          =>   $new_name,
+            'first_name'    =>   $request->first_name,
             'last_name'     =>   $request->last_name,
             'email'         =>   $request->email,
             'phone'         =>   $request->phone,

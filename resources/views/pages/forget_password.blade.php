@@ -4,7 +4,7 @@
 <div class="conatiner-fluid">
     <div class="row">
         <div class="col-12">
-           <div style="background:blue;width:100%;height:170px;">
+           <div style="background:rgb(8, 8, 63);width:100%;height:170px;">
              <a href="{{ url('/')}}" class="text-white text-left">
                     <i class="fas fa-arrow-alt-circle-left"></i>
                     Back Home
@@ -36,7 +36,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

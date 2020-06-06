@@ -17,21 +17,25 @@
       <div class="container">
           <div class="row">
               <div class="col-md-10 offset-1">
-                   <div class="h-80 w-100 mt-3 border border-primary">
-                    <p class="p-4 first">Send & Track Invoices</p>
-                    <a href="#"  class="d-none">Go to Invoice</a>
+                   <div class="h-80 w-100 mt-1 border border-primary">
+                    <p class="p-4 first">Send & Track Invoices
+                     <a href="{{url('/invoices')}}" class="float-right">Go to Invoice</a>
+                    </p>
                     </div>
                     <div class="h-80 w-100 mt-3 border border-primary">
-                    <p class="p-4 second">Create export documents for a shipment</p>
-                    <a href="#"  class="d-none">Go to Invoice</a>
+                    <p class="p-4 second">Create export documents for a shipment
+                    <a href="{{url('/shipment')}}"  class="float-right">Go to Shipment</a>
+                    </p>
                     </div>
                     <div class="h-80 w-100 mt-3 border border-primary">
-                    <p class="p-4 third">Send professional export quotes </p>
-                    <a href="#"  class="d-none">Go to Invoice</a>
+                    <p class="p-4 third">Send professional export quotes
+                    <a href="{{url('/quotes')}}"  class="float-right">Go to Quotes</a>
+                    </p>
                     </div>
                     <div class="h-80 w-100 mt-3 border border-primary">
-                    <p class="p-4 four">Manage your purchase Order</p>
-                    <a href="#"  class="d-none">Go to Invoice</a>
+                    <p class="p-4 four">Manage your purchase Order
+                    <a href="{{url('/purchases')}}"  class="float-right">Go to Purchase</a>
+                    </p>
                     </div> 
               </div>
           </div>

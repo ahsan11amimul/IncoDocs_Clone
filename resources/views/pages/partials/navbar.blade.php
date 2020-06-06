@@ -1,19 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="{{url('/')}}">Inco Docs</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+   <a class="navbar-brand" href="{{url('/')}}"> 
+    <img src="{{URL::asset('/images/favicon.png')}}" alt="" width="80" height="62"><strong style="color:rgba(11, 3, 46, 0.932);">Which Express</strong></a> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+      
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
       <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="{{url('/quotes')}}">Quotes</a>
+      <a class="nav-link" href="{{url('/quote')}}">Quotes</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="{{url('/invoices')}}">Invoices</a>
+      <a class="nav-link" href="{{url('/invoice')}}">Invoices</a>
       </li>
       <li class="nav-item">
       <a class="nav-link" href="{{url('/shipping')}}">Shipping</a>
@@ -22,7 +24,7 @@
       <a class="nav-link" href="{{url('/purchase')}}">Purchases</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="{{url('/pricing')}}">Pricing</a>
+      <a class="nav-link" href="{{url('/price')}}">Pricing</a>
       </li>
       <li class="nav-item">
       <a class="nav-link" href="{{url('/trade')}}">Trade Tips</a>
@@ -33,10 +35,10 @@
         <a class="nav-link" href="{{url('/contact')}}">| &nbsp;Contact</a>
      </li>  
      <li class="nav-item">
-     <a  class="nav-link btn btn-outline-info mr-2"  href="{{url('/login')}}">SignIn</a>
+     <a  class="nav-link btn btn-outline-info mr-2 btn-sm"  href="{{url('/login')}}">SignIn</a>
      </li>
      <li class="nav-item">
-     <a  class="nav-link btn btn-primary text-white btn-lg"  href="{{url('/register')}}">Get Started</a>
+     <a  class="nav-link btn btn-primary text-white btn-lg btn-sm"  href="{{url('/register')}}">Get Started</a>
      </li>
         
     </ul>

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('cdn/bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset('cdn/datatables.css')}}">
     <link rel="stylesheet" href="{{ asset('css/pages_index.css')}}">
+    <link rel="icon" href="{{ URL::asset('/images/favicon.png') }}" type="image/x-icon"/> 
     <title>@yield('title')</title>
 </head>
 <body>

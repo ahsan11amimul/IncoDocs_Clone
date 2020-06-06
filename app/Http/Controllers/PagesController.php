@@ -24,17 +24,17 @@ class PagesController extends Controller
     {
         return view('pages.index');
     }
-    public function quotes()
+    public function quote()
     {
-        return view('pages.quotes');
+        return view('pages.quote');
     }
-    public function invoices()
+    public function invoice()
     {
-        return view('pages.invoices');
+        return view('pages.invoice');
     }
-    public function pricing()
+    public function price()
     {
-        return view('pages.pricing');
+        return view('pages.price');
     }
     public function shipping()
     {
@@ -55,7 +55,7 @@ class PagesController extends Controller
         {
             $data=$request->validate([
             'email'=>'required|email',
-            'name'=>'required',
+            'name'=>'required|string',
             'phone_number'=>'required|digits:11',
             'company_name'=>'required|string',
             'message'=>'required|string'
@@ -113,7 +113,28 @@ class PagesController extends Controller
    }
     //login form
      public function login(Request $request)
-    {
+    {    
+        // if($request->ajax())
+        // {
+        //     $email=$request->email;
+        //     $password=$request->password;
+        //     if(Auth::attempt(['email'=>$email,'password'=>$password,'email_verified'=>1]))
+        //     {  
+        //         if(Auth::user()->is_admin==1)
+        //         {
+                    
+        //            // return redirect()->intended('/admin/dashboard');
+        //            return response()->json(['data'=>'admin']);
+        //         }else
+        //         {
+        //             //return redirect()->intended('/user/dashboard');
+        //             return response()->json(['data'=>'user']);
+        //         }
+        //     }else{
+        //         return response()->json(['data'=>'wrong']);
+        //     }
+            
+        // }
         if($request->isMethod("POST"))
         {
              $data=$request->validate([
@@ -137,7 +158,7 @@ class PagesController extends Controller
              }
              else
              {
-             return \redirect('/login')->with('error','Invalid credentials or activate your account');
+             return \redirect()->back()->with('error','Invalid credentials or activate your account');
              }
 
         }else{

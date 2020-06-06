@@ -1,29 +1,29 @@
-<div id="profarma" class="modal fade" role="dialog">
- <div class="modal-dialog  modal-xl">
-  <div class="modal-content">
-   <div class="modal-header"> 
-     <h4 class="modal-title">Profarma Invoice</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-         
-        </div>
-        <div class="modal-body">
-         <span id="form_result"></span>
-        <form id="sample_form" method="post" enctype="multipart/form-data">
-         <div class="row">
+<div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12 card mt-2 p-3 bg-light mb-3">
+        <div class="card-body"> 
+          <h5 class="card-title text-center">PROFARMA INVOICE</h5>
+		  <form action="{{url('/invoices/profarma')}}" method="post" enctype="multipart/form-data">
+            @csrf
+           <div class="row">
 					<div class="col-6 border">
 						<div class="form-row">
 							<div class="form-group col-12">
-								<label for="seller" class="col-form-label">Seller</label>
-								<select name="seller" id="seller" class="form-control">
+								<label for="seller_id" class="col-form-label">Seller</label>
+								<select name="seller_id" id="seller_id" class="form-control">
 									<option value="">Select</option>
-									<option value="1">Option 1</option>
+									@foreach (App\Contact::where('user_id',Auth::user()->id)->get() as $item)
+								<option value="{{$item->id}}">{{$item->first_name}}</option>
+									@endforeach
 								</select>
 							</div>
 							<div class="form-group col-12">
-								<label for="seller" class="col-form-label">Buyer</label>
-								<select name="seller" id="seller" class="form-control">
+								<label for="buyer_id" class="col-form-label">Buyer</label>
+								<select name="buyer_id" id="buyer_id" class="form-control">
 									<option value="">Select</option>
-									<option value="1">Option 1</option>
+									@foreach (App\Contact::where('user_id',Auth::user()->id)->get() as $item)
+								<option value="{{$item->id}}">{{$item->first_name}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -38,12 +38,13 @@
 									type="text"
 									name="invoice_number"
 									id="invoice_number"
+									value="INV-{{ App\Invoice::all()->count()+1}}"
 									class="form-control"
 								/>
 							</div>
 							<div class="col-6 form-group">
 								<label for="date" class="col-form-label">Date</label>
-								<input type="date" name="date" id="date" class="form-control" />
+								<input type="date" name="date" id="date" class="form-control" value="{{date('Y-m-d')}}" />
 							</div>
 							<div class="col-6 form-group">
 								<label for="buyer_reference" class="col-form-label"
@@ -63,7 +64,8 @@
 								<input
 									type="date"
 									name="delivery_date"
-									id="date"
+									id="delivery_date"
+									value="{{date('Y-m-d')}}"
 									class="form-control"
 								/>
 							</div>
@@ -74,58 +76,56 @@
 					<div class="col-6 border">
 						<div class="form-row">
 							<div class="form-group col-6">
-								<label for="dispatch_method" class="col-form-label"
+								<label for="dispatch_id" class="col-form-label"
 									>Method Of Dispatch</label
 								>
 								<select
-									name="dispatch_method"
-									id="dispatch_method"
+									name="dispatch_id"
+									id="dispatch_id"
 									class="form-control"
 								>
 									<option value="">-</option>
-									<option value="1">Option 1</option>
+									@foreach (App\Dispatch::all() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
+									
 								</select>
 							</div>
 							<div class="form-group col-6">
-								<label for="shipment_type" class="col-form-label"
-									>Type 0f Shipment</label
-								>
-								<select
-									class="form-control"
-									id="shipment_type"
-									class="form-control"
-									name="shipment_type"
-								>
-									<option value="">-</option>
-									<option value="1">Option 1</option>
-								</select>
+								<label for="shipment_type" class="col-form-label">Type 0f Shipment</label>
+								<input type="text" name="shipment_type" id="shipment_type" class="form-control">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-6">
-								<label for="loading_port" class="col-form-label"
+								<label for="loading_id" class="col-form-label"
 									>Port of Loading</label
 								>
 								<select
-									name="loading_port"
-									id="loading_port"
+									name="loading_id"
+									id="loading_id"
 									class="form-control"
 								>
 									<option value="">-</option>
-									<option value="1">Option 1</option>
+									@foreach (App\Place::all() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
 								</select>
 							</div>
 							<div class="form-group col-6">
-								<label for="discharge_port" class="col-form-label"
+								<label for="discharge_id" class="col-form-label"
 									>Port Of Discharge</label
 								>
 								<select
 									class="form-control"
-									id="discharge_port"
+									id="discharge_id"
+									name="discharge_id"
 									class="form-control"
 								>
 									<option value="">-</option>
-									<option value="1">Option 1</option>
+									@foreach (App\Place::all() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -142,7 +142,10 @@
 									id="payment_method"
 									class="form-control"
 								>
-									<option value="">Select</option>
+									<option value="">Details</option>
+									@foreach (App\Detail::where('user_id',Auth::user()->id)->get() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -151,16 +154,16 @@
 				<div class="row">
 					<div class="col-12 border">
 						<div class="table-responsive">
-							<form method="post" id="dynamic_form">
-								<span id="result"></span>
+							
 								<table
 									class="table table-bordered table-striped"
 									id="user_table"
 								>
 									<thead>
 										<tr>
+											<th width="5%">#</th>
 											<th width="10%">Product Code</th>
-											<th width="%40">Description of Goods</th>
+											<th width="35%">Description of Goods</th>
 											<th width="10%">Unit Quantity</th>
 											<th width="10%">Unit Type</th>
 											<th width="10%">Price</th>
@@ -168,9 +171,28 @@
 											<th width="10%">Action</th>
 										</tr>
 									</thead>
-									<tbody></tbody>
+									<tbody>
+										<tr>
+											<td><span id="sr_no">1</span></td>
+											<td><select name="code[]" id="code1" class="form-control code" data-dependent="product">
+											<option value="">Products</option>
+											@foreach (App\Product::where('user_id',Auth::user()->id)->get() as $item)
+											<option value="{{$item->code}}">{{$item->code}}</option>
+											@endforeach
+										
+											</select></td>
+                                            <td><input type="text" name="description[]" id="description1" data-srno="1" class="form-control description" /></td>
+                                            <td><input type="text" name="quantity[]" id="quantity1" data-srno="1" class="form-control number_only quantity" /></td>
+                                            <td><input type="text" name="unit[]" id="unit1" data-srno="1" class="form-control" /></td>
+          
+                                           <td><input type="text" name="price[]" id="price1" data-srno="1" class="form-control  number_only price" /></td>
+                                           <td><input type="text" name="amount[]" id="amount1" data-srno="1" readonly class="form-control amount" /></td>
+                                           <td><button type="button" name="add_row" id="add_row" class="btn btn-success btn-xs add_row">+</button></td>
+
+									    </tr>
+									</tbody>
 								</table>
-							</form>
+						
 						</div>
 					</div>
 					<div class="col-12 border">
@@ -180,8 +202,16 @@
 							>
 							<input
 								type="text"
+								name="quantity_total"
+								id="quantity_total"
+								class="col-sm-3 form-control"
+								readonly
+							/>
+							<input
+								type="text"
 								name="total"
-								class="col-sm-6 form-control"
+								id="total"
+								class="col-sm-3 form-control"
 								readonly
 							/>
 						</div>
@@ -199,7 +229,10 @@
 									id="additional_info"
 									class="form-control"
 								>
-									<option value="">-</option>
+									<option value="">Details</option>
+									@foreach (App\Detail::where('user_id',Auth::user()->id)->get() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -212,7 +245,8 @@
 							<input
 								type="text"
 								name="discount"
-								class="col-sm-8 form-control"
+								id="discount"
+								class="col-sm-8 form-control discount"
 							/>
 						</div>
 						<div class="form-group row">
@@ -222,6 +256,7 @@
 							<input
 								type="text"
 								name="invoice_total"
+								id="invoice_total"
 								class="col-sm-8 form-control"
 							/>
 						</div>
@@ -239,7 +274,10 @@
 									id="bank_detail"
 									class="form-control"
 								>
-									<option value="">-</option>
+								<option value="">Details</option>
+									@foreach (App\Detail::where('user_id',Auth::user()->id)->get() as $item)
+								   <option value="{{$item->id}}">{{$item->name}}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>
@@ -260,6 +298,7 @@
 									type="date"
 									name="action_date"
 									id="action_date"
+									value="{{date('Y-m-d')}}"
 									class="form-control"
 									placeholder="date of issue"
 								/>
@@ -312,14 +351,14 @@
 						</div>
 					</div>
 				</div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <input type="hidden" name="hidden_id" id="hidden_id">
-        <input type="submit" class="btn btn-primary" id="action_button" name="action_button" value="Add">
-        </div>
-      </form>
         
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+           
         </div>
-     </div>
+        
+            
+      </div>
+    
     </div>
-</div>
+</div> 

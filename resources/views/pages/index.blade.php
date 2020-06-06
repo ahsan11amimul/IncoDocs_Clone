@@ -1,23 +1,35 @@
 @extends('pages.layouts.master')
 @section('title')
-   IncoDocs:Invoicing platform 
+IncoDocs: Free Cloud Invoicing & Export Documentation Tool
 @endsection
-@section('content')
+@section('content')    
 <div class="container-fluid">
-   <!-- Navbar -->
+   <!-- Navbar -->  
  @include('pages.partials.navbar') 
+ <div class="row" style="margin-top: 100px;">
+     <div class="col-md-12 text-center">
+         <a href="#" class="text-white d-block py-2" style="background-color: rgb(64, 66, 163)">Running Your Export Business Remotely During COVID-19 Pandemic. Learn more</a>
+     </div>
+ </div>
 
-  <!-- Jumbroton -->
+  
+
+<div class="row mt-5">
+<div class="col-md-12">
+         <!-- Jumbroton -->
  <div class="jumbotron">
   <h1 class="display-4 text-center">A thoroughly modern sales & shipping tool made just for importers & exporters.</h1>
   
   <hr class="my-4">
   <div class="text-center">
-  <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
-  <a class="btn btn-outline-info btn-lg" href="#" role="button">Contact Sales</a>
+  <a class="btn btn-primary" href="{{url('/register')}}" role="button">Get Started Free</a>
+  <a class="btn btn-outline-info" href="{{url('/contact')}}" role="button">Contact Sales</a>
   </div>
   
  </div>
+     </div>
+ </div>
+  
  <div class="row">
      <div class="col-md-4 text-center border-right p-4">
          <h5>Quoting</h5>

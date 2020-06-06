@@ -9,11 +9,21 @@ body {
 
 
 .mainHeader {
-    background-color: rgba(238, 245, 243, 0.925);
-    height: 90px;
-    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    width: 100%;
 
 
+
+
+}
+
+.letter {
+    background: #086d4d;
+    color: #fff;
+    padding: 6px 11px;
+    border-radius: 50%;
+    font-size: 15px;
 }
 
 .sidenav {

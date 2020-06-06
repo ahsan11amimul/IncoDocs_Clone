@@ -20,8 +20,8 @@
                             </select>
                         </div>
                         <div class="form-group col-12">
-                            <label for="seller" class="col-form-label">Buyer</label>
-                            <select name="seller" id="seller" class="form-control">
+                            <label for="buyer" class="col-form-label">Buyer</label>
+                            <select name="buyer" id="buyer" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Option 1</option>
                             </select>
@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-12 border">
                     <div class="table-responsive">
-                        <form method="post" id="dynamic_form">
+                    
                             <span id="result"></span>
                             <table class="table table-bordered table-striped" id="user_table">
                                 <thead>
@@ -116,7 +116,7 @@
                                 </thead>
                                 <tbody></tbody>
                             </table>
-                        </form>
+            
                     </div>
                 </div>
                 <div class="col-12 border">

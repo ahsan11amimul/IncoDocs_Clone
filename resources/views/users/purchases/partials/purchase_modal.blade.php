@@ -13,15 +13,15 @@
                 <div class="col-6 border">
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="seller" class="col-form-label">From</label>
-                            <select name="seller" id="seller" class="form-control">
+                            <label for="from" class="col-form-label">From</label>
+                            <select name="from" id="from" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Option 1</option>
                             </select>
                         </div>
                         <div class="form-group col-12">
-                            <label for="seller" class="col-form-label">To</label>
-                            <select name="seller" id="seller" class="form-control">
+                            <label for="to" class="col-form-label">To</label>
+                            <select name="to" id="to" class="form-control">
                                 <option value="">Select</option>
                                 <option value="1">Option 1</option>
                             </select>
@@ -90,7 +90,7 @@
             <div class="row">
                 <div class="col-12 border">
                     <div class="table-responsive">
-                        <form method="post" id="dynamic_form">
+                       
                             <span id="result"></span>
                             <table class="table table-bordered table-striped" id="user_table">
                                 <thead>
@@ -106,7 +106,7 @@
                                 </thead>
                                 <tbody></tbody>
                             </table>
-                        </form>
+                        
                     </div>
                 </div>
                 <div class="col-12 border">

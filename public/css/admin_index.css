@@ -1,0 +1,20 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(245, 244, 237);
+    font-family: sans-serif;
+
+}
+
+.bg-light {
+    background-color: snow !important;
+    height: 85px !important;
+    font-size: 16px !important;
+}
+
+.sidenav {
+    background-color: rgb(219, 218, 217);
+    height: 500px;
+    width: 250px;
+    border-right: rgb(52, 56, 56);
+}

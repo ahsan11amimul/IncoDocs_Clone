@@ -1,48 +1,42 @@
 $(document).ready(function () {
     //alert('invoice');
-    function myFunction() {
-        var quantity = $('#quantity').val();
-        var price = $('#price').val();
-        var total = quantity * price;
-        $('#amount').val(total);
-    }
-    var count = 1;
+    $('#invoice_table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: "/invoices",
+        },
+        columns: [
+            { data: 'invoice_number', name: 'invoice_number' },
+            { data: 'buyer', name: 'buyer' },
+            { data: 'status', name: 'status' },
+            { data: 'type', name: 'type' },
+            { data: 'invoice_total', name: 'invoice_total' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'action', name: 'action', orderable: false }
+        ]
 
-    dynamic_field(count);
-
-    function dynamic_field(number) {
-        html = '<tr>';
-        html +=
-            '<td><input type="text" name="code[]" class="form-control" /></td>';
-        html +=
-            '<td><input type="text" name="description[]" class="form-control" /></td>';
-        html +=
-            '<td><input type="number" name="quantity[]" class="form-control" id="quantity" min="1" /></td>';
-        html +=
-            '<td><input type="text" name="unit[]" class="form-control" /></td>';
-        html +=
-            '<td><input type="number" name="price[]" class="form-control" id="price" onfocusout="myFunction()" /></td>';
-        html +=
-            '<td><input type="number" name="amount[]" class="form-control" id="amount" min="1"  readonly/></td>';
-
-        if (number > 1) {
-            html +=
-                '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
-            $('tbody').append(html);
-        } else {
-            html +=
-                '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
-            $('tbody').html(html);
-        }
-    }
-
-    $(document).on('click', '#add', function () {
-        count++;
-        dynamic_field(count);
+    });
+    var user_id;
+    $(document).on('click', '.delete', function () {
+        user_id = $(this).attr('id');
+        $('#confirmModal').modal('show');
+    });
+    $('#ok_button').click(function () {
+        $.ajax({
+            url: "invoices/destroy/" + user_id,
+            beforeSend: function () {
+                $('#ok_button').text('Deleting...');
+            },
+            success: function (data) {
+                setTimeout(function () {
+                    $('#confirmModal').modal('hide');
+                    $('#invoice_table').DataTable().ajax.reload();
+                }, 2000);
+            }
+        })
     });
 
-    $(document).on('click', '.remove', function () {
-        count--;
-        $(this).closest('tr').remove();
-    });
+
+
 })

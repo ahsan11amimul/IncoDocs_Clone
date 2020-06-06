@@ -4,7 +4,7 @@
 <div class="conatiner-fluid">
     <div class="row">
         <div class="col-12">
-           <div style="background:blue;width:100%;height:170px;">
+           <div style="background:rgb(8, 8, 63);width:100%;height:170px;">
                 <a href="{{ url('/')}}" class="text-white text-left">
                     <i class="fas fa-arrow-alt-circle-left"></i>
                     Back Home
@@ -77,10 +77,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="row">
-                  <div class="card-footer col-md-8 offset-md-3">
-                <button class="btn btn-outline-success btn-block"><a href="{{url('/forgetpassword')}}" class="nav-link">Forgot Password ?? Click Here</a></button>   
-                <button class="btn btn-outline-secondary btn-block"><a href="{{url('/register')}}" class="nav-link">Do not have an account ?? Get Started now</a></button>   
+                <div class="row py-2">
+                <div class="col-md-6 offset-md-4 text-center">
+                <a href="{{url('/forgetpassword')}}">Forget Password ??</a>
+                <a href="{{url('/register')}}">Login</a>
+                {{-- <button class="btn btn-outline-success btn-block"><a href="{{url('/forgetpassword')}}" class="nav-link">Forgot Password ?? Click Here</a></button>   
+                <button class="btn btn-outline-secondary btn-block"><a href="{{url('/register')}}" class="nav-link">Do not have an account ?? Get Started now</a></button>    --}}
                 </div>
                
                 </div>

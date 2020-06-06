@@ -1,5 +1,5 @@
 @extends('pages.layouts.master')
-@section('title','Inco Docs')
+@section('title','Which Express')
 @section('content')
   <div class="container">
     <div class="row justify-content-center m-auto">

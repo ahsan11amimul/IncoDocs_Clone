@@ -44,15 +44,15 @@
   <div class="container bg-light">
     <div class="row">
       <div class="col-md-10 d-flex">
-         <a class="nav-link mr-2" href="{{url('/quotes')}}">Quotes</a>
-         <a class="nav-link mr-2" href="{{url('/invoices')}}">Invoices</a>
+         <a class="nav-link mr-2" href="{{url('/quote')}}">Quotes</a>
+         <a class="nav-link mr-2" href="{{url('/invoice')}}">Invoices</a>
          <a class="nav-link mr-2" href="{{url('/shipping')}}">Shipping</a>
          <a class="nav-link mr-2" href="{{url('/purchase')}}">Purchases</a>
-         <a class="nav-link mr-2" href="{{url('/pricing')}}">Pricing</a>
+         <a class="nav-link mr-2" href="{{url('/price')}}">Pricing</a>
          <a class="nav-link mr-2" href="{{url('/trade')}}">Trade Tips</a>
       </div>
       <div class="col-md-10">
-        <div class="footer-copyright py-3 ml-3">Copyright 2020 &copy;<strong>&nbsp;IncoDocs.com</strong>
+        <div class="footer-copyright py-3 ml-3">Copyright 2020 &copy;<strong>&nbsp;whichexpress.com</strong>
         
         </div>
       </div>

@@ -8,4 +8,8 @@ class Company extends Model
 {
     //
     protected $guarded=[];
+     public function users()
+    {
+        return $this->hsMany('App\User::class');
+    }
 }

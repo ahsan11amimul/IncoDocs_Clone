@@ -8,8 +8,8 @@
     <!-- mainHeader -->
  @include('users.partials.mainHeader')  
  <div class="container">
-     <div class="row">
-      <div class="text-right">
+  <div class="row">
+    <div class="text-right">
       <button type="button" name="create_record" id="create_record" class="btn btn-success btn-sm">Create Record</button>
      </div>
      <br />
@@ -27,8 +27,7 @@
        </table>
    </div>
  
- </body>
-</html> 
+ 
 
 <div id="formModal" class="modal fade" role="dialog">
  <div class="modal-dialog  modal-lg">
